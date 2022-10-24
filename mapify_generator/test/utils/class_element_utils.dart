@@ -13,6 +13,8 @@ Future<ClassElement> createClassElement({
       import 'package:mapify/mapify.dart';
       
       $clazz
+      
+      $extra
       ''', (resolver) async {
     return resolver
         .findLibraryByName('test')
