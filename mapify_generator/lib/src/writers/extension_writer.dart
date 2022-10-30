@@ -1,4 +1,5 @@
 import 'package:analyzer/dart/element/element.dart';
+import 'package:dart_style/dart_style.dart';
 
 import 'writers.dart';
 
@@ -17,6 +18,8 @@ class ExtensionWriter {
   final String _inputClassName;
   final ClassElement _inputTypeClassElement;
   final List<ClassElement> _outputTypeClassElements;
+
+  final DartFormatter _dartFormatter = DartFormatter();
 
   String write() {
     // start the extension
@@ -40,6 +43,6 @@ class ExtensionWriter {
     // end the extension
     outputBuffer.writeln('}');
 
-    return outputBuffer.toString();
+    return _dartFormatter.format(outputBuffer.toString());
   }
 }

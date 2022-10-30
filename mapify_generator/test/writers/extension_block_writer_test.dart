@@ -3,6 +3,7 @@ import 'package:test/test.dart';
 
 import '../utils/class_element_utils.dart';
 import '../utils/field_element_utils.dart';
+import '../utils/resource_reader.dart';
 
 void main() {
   test('Test response of extension block writer', () async {
@@ -40,21 +41,11 @@ void main() {
     );
 
     final output = extensionBlockWriter.write();
+    print(output);
 
     expect(
       output,
-      'FooEntity toFooEntity() {\n'
-      'final mapper = FooMapper(this);\n'
-      'return FooEntity(\n'
-      'id: mapper.convert<String>(toFieldName: \'id\', type: FooEntity,) ?? id,\n'
-      'unknown: mapper.convert<String>(toFieldName: \'unknown\', type: FooEntity,)!,\n'
-      'unknown2: mapper.convert<String>(toFieldName: \'unknown2\', type: FooEntity,),\n'
-      'items: mapper.convert<List<CustomObjectEntity>>(toFieldName: \'items\', type: FooEntity,) ?? items.map((e) => e.toCustomObjectEntity()),\n'
-      'customObject1: mapper.convert<CustomObjectEntity>(toFieldName: \'customObject1\', type: FooEntity,) ?? customObject1.toCustomObjectEntity(),\n'
-      'customObject2: mapper.convert<CustomObjectEntity>(toFieldName: \'customObject2\', type: FooEntity,) ?? customObject2?.toCustomObjectEntity(),\n'
-      ');\n'
-      '}\n'
-      '',
+      await readResource('expected_block_output.txt'),
     );
   });
 }

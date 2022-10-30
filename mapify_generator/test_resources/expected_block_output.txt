@@ -1,0 +1,33 @@
+FooEntity toFooEntity() {
+  final mapper = FooMapper(this);
+  return FooEntity(
+    id: mapper.convert<String>(
+          toFieldName: 'id',
+          type: FooEntity,
+        ) ??
+        id,
+    unknown: mapper.convert<String>(
+      toFieldName: 'unknown',
+      type: FooEntity,
+    )!,
+    unknown2: mapper.convert<String>(
+      toFieldName: 'unknown2',
+      type: FooEntity,
+    ),
+    items: mapper.convert<List<CustomObjectEntity>>(
+          toFieldName: 'items',
+          type: FooEntity,
+        ) ??
+        items.map((e) => e.toCustomObjectEntity()),
+    customObject1: mapper.convert<CustomObjectEntity>(
+          toFieldName: 'customObject1',
+          type: FooEntity,
+        ) ??
+        customObject1.toCustomObjectEntity(),
+    customObject2: mapper.convert<CustomObjectEntity>(
+          toFieldName: 'customObject2',
+          type: FooEntity,
+        ) ??
+        customObject2?.toCustomObjectEntity(),
+  );
+}

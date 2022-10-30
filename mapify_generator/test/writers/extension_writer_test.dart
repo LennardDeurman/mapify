@@ -1,6 +1,7 @@
 import 'package:mapify_generator/src/writers/writers.dart';
 import 'package:test/test.dart';
 
+import '../utils/resource_reader.dart';
 import '../utils/class_element_utils.dart';
 
 void main() {
@@ -82,34 +83,6 @@ void main() {
     );
 
     final code = extensionWriter.write();
-
-    expect(
-      code,
-      'extension FooMapperExtension on Foo{\n'
-      'FooDto toFooDto() {\n'
-      'final mapper = FooMapper(this);\n'
-      'return FooDto(\n'
-      'id: mapper.convert<String>(toFieldName: \'id\', type: FooDto,) ?? id,\n'
-      'items: mapper.convert<List<CustomObjectDto>>(toFieldName: \'items\', type: FooDto,) ?? items.map((e) => e.toCustomObjectDto()),\n'
-      'customObject1: mapper.convert<CustomObjectDto>(toFieldName: \'customObject1\', type: FooDto,) ?? customObject1.toCustomObjectDto(),\n'
-      'customObject2: mapper.convert<CustomObjectDto>(toFieldName: \'customObject2\', type: FooDto,) ?? customObject2?.toCustomObjectDto(),\n'
-      'unknown: mapper.convert<String>(toFieldName: \'unknown\', type: FooDto,)!,\n'
-      'unknown2: mapper.convert<String>(toFieldName: \'unknown2\', type: FooDto,),\n'
-      ');\n'
-      '}\n'
-      'FooEntity toFooEntity() {\n'
-      'final mapper = FooMapper(this);\n'
-      'return FooEntity(\n'
-      'id: mapper.convert<String>(toFieldName: \'id\', type: FooEntity,) ?? id,\n'
-      'items: mapper.convert<List<CustomObjectEntity>>(toFieldName: \'items\', type: FooEntity,) ?? items.map((e) => e.toCustomObjectEntity()),\n'
-      'customObject1: mapper.convert<CustomObjectEntity>(toFieldName: \'customObject1\', type: FooEntity,) ?? customObject1.toCustomObjectEntity(),\n'
-      'customObject2: mapper.convert<CustomObjectEntity>(toFieldName: \'customObject2\', type: FooEntity,) ?? customObject2?.toCustomObjectEntity(),\n'
-      'unknown: mapper.convert<String>(toFieldName: \'unknown\', type: FooEntity,)!,\n'
-      'unknown2: mapper.convert<String>(toFieldName: \'unknown2\', type: FooEntity,),\n'
-      ');\n'
-      '}\n'
-      '}\n'
-      '',
-    );
+    expect(code, await readResource('expected_file_output.txt'));
   });
 }

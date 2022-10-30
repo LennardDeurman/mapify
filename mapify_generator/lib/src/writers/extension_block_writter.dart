@@ -1,4 +1,5 @@
 import 'package:analyzer/dart/element/element.dart';
+import 'package:dart_style/dart_style.dart';
 
 import '../processors/processors.dart';
 import '../writers/extension_line_writer.dart';
@@ -18,6 +19,8 @@ class ExtensionBlockWriter {
   final String _mapperClassName;
   final List<FieldElement> _fields;
   final ClassElement _inputTypeClassElement;
+
+  final DartFormatter _dartFormatter = DartFormatter();
 
   StringBuffer addExtensionContentLines(StringBuffer buffer) {
     for (final field in _fields) {
@@ -48,6 +51,6 @@ class ExtensionBlockWriter {
     outputBuffer.writeln(');');
     outputBuffer.writeln('}');
 
-    return outputBuffer.toString();
+    return _dartFormatter.format(outputBuffer.toString());
   }
 }

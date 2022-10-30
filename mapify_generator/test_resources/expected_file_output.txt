@@ -1,0 +1,69 @@
+extension FooMapperExtension on Foo {
+  FooDto toFooDto() {
+    final mapper = FooMapper(this);
+    return FooDto(
+      id: mapper.convert<String>(
+            toFieldName: 'id',
+            type: FooDto,
+          ) ??
+          id,
+      items: mapper.convert<List<CustomObjectDto>>(
+            toFieldName: 'items',
+            type: FooDto,
+          ) ??
+          items.map((e) => e.toCustomObjectDto()),
+      customObject1: mapper.convert<CustomObjectDto>(
+            toFieldName: 'customObject1',
+            type: FooDto,
+          ) ??
+          customObject1.toCustomObjectDto(),
+      customObject2: mapper.convert<CustomObjectDto>(
+            toFieldName: 'customObject2',
+            type: FooDto,
+          ) ??
+          customObject2?.toCustomObjectDto(),
+      unknown: mapper.convert<String>(
+        toFieldName: 'unknown',
+        type: FooDto,
+      )!,
+      unknown2: mapper.convert<String>(
+        toFieldName: 'unknown2',
+        type: FooDto,
+      ),
+    );
+  }
+
+  FooEntity toFooEntity() {
+    final mapper = FooMapper(this);
+    return FooEntity(
+      id: mapper.convert<String>(
+            toFieldName: 'id',
+            type: FooEntity,
+          ) ??
+          id,
+      items: mapper.convert<List<CustomObjectEntity>>(
+            toFieldName: 'items',
+            type: FooEntity,
+          ) ??
+          items.map((e) => e.toCustomObjectEntity()),
+      customObject1: mapper.convert<CustomObjectEntity>(
+            toFieldName: 'customObject1',
+            type: FooEntity,
+          ) ??
+          customObject1.toCustomObjectEntity(),
+      customObject2: mapper.convert<CustomObjectEntity>(
+            toFieldName: 'customObject2',
+            type: FooEntity,
+          ) ??
+          customObject2?.toCustomObjectEntity(),
+      unknown: mapper.convert<String>(
+        toFieldName: 'unknown',
+        type: FooEntity,
+      )!,
+      unknown2: mapper.convert<String>(
+        toFieldName: 'unknown2',
+        type: FooEntity,
+      ),
+    );
+  }
+}
