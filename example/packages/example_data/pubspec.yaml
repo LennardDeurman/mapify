@@ -1,6 +1,7 @@
 name: example_data
 description: A new Flutter package project.
 version: 0.0.1
+publish_to: none
 homepage:
 
 environment:
@@ -16,11 +17,16 @@ dependencies:
     path: ../example_api
   example_storage:
     path: ../example_storage
+  mapify:
+    path: ../../../mapify
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  build_runner: ^2.3.2
+  mapify_generator:
+    path: ../../../mapify_generator
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
