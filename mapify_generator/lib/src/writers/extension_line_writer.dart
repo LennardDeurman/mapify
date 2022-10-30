@@ -34,7 +34,7 @@ class ExtensionLineWriter {
   }
 
   StringBuffer addSingularTypeConverter(StringBuffer buffer) {
-    return buffer..write('to$_typeName()');
+    return buffer..write('.to$_typeName()');
   }
 
   StringBuffer addOptionalOperator(StringBuffer buffer) {

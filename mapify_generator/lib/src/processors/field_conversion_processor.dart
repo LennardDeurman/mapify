@@ -8,7 +8,6 @@ enum FieldConversionStrategy {
   mapListSubType,
 }
 
-
 class FieldConversionProcessor {
   FieldConversionProcessor.to(
       this._outputField, {
