@@ -41,7 +41,6 @@ void main() {
     );
 
     final output = extensionBlockWriter.write();
-    print(output);
 
     expect(
       output,
