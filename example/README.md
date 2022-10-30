@@ -1,16 +1,24 @@
 # example
 
-A new Flutter project.
+Mapify Example
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project showcases the functionality of the mapify package
 
-A few resources to get you started if this is your first Flutter project:
+The project seperates its clean architecture flow by defining packages in the packages directory
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- example_api (Call to api, and direct API parsing models)
+- example_storage (Call to storage, such as shared preferences or local db)
+- example_core (Will contain the models and contracts)
+- example_data (Implementation of the contracts / combining layer)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The example_data will contain the mapping and handle this process. 
+
+Mapify will use the build_runner to generate the mapper classes (.g.dart)
+
+By default, these files are not checked in, so on initial setup running the build_runnrt is required
+
+To run the build_runner and generate the mapping, inside example_data run:
+
+flutter pub run build_runner build --delete-conflicting-outputs
