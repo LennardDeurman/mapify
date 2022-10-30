@@ -1,0 +1,14 @@
+targets:
+  $default:
+    builders:
+      generators|annotations:
+        enabled: true
+
+builders:
+  property_product:
+    import: "package:mapify_generator/builder.dart"
+    builder_factories: [ "mapify" ]
+    build_extensions: { ".dart": [ "g.part" ] }
+    auto_apply: dependents
+    build_to: cache
+    applies_builders: [ "source_gen|combining_builder" ]
