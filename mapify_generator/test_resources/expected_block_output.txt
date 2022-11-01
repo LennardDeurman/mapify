@@ -18,7 +18,7 @@ FooEntity toFooEntity() {
           toFieldName: 'items',
           type: FooEntity,
         ) ??
-        items.map((e) => e.toCustomObjectEntity()),
+        items.map((e) => e.toCustomObjectEntity()).toList(),
     customObject1: mapper.convert<CustomObjectEntity>(
           toFieldName: 'customObject1',
           type: FooEntity,

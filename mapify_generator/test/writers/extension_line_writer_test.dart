@@ -82,23 +82,23 @@ void main() {
     });
   });
 
-  group('FieldConversionStrategy.mapSingleSubType', () {
-    test('FieldConversionStrategy.mapSingleSubType should output correct string', () async {
+  group('FieldConversionStrategy.mapListSubType', () {
+    test('FieldConversionStrategy.mapListSubType should output correct string', () async {
       final output = await _getExtensionLine(
         fieldStr: 'final List<CustomObject> customObjects;',
         strategy: FieldConversionStrategy.mapListSubType,
       );
 
-      expect(output, "customObjects: mapper.convert<List<CustomObject>>(toFieldName: 'customObjects', type: Foo,) ?? customObjects.map((e) => e.toCustomObject()),");
+      expect(output, "customObjects: mapper.convert<List<CustomObject>>(toFieldName: 'customObjects', type: Foo,) ?? customObjects.map((e) => e.toCustomObject()).toList(),");
     });
 
-    test('FieldConversionStrategy.mapSingleSubType should output correct string - isNullable', () async {
+    test('FieldConversionStrategy.mapListSubType should output correct string - isNullable', () async {
       final output = await _getExtensionLine(
         fieldStr: 'final List<CustomObject>? customObjects;',
         strategy: FieldConversionStrategy.mapListSubType,
       );
 
-      expect(output, "customObjects: mapper.convert<List<CustomObject>>(toFieldName: 'customObjects', type: Foo,) ?? customObjects?.map((e) => e.toCustomObject()),");
+      expect(output, "customObjects: mapper.convert<List<CustomObject>>(toFieldName: 'customObjects', type: Foo,) ?? customObjects?.map((e) => e.toCustomObject())?.toList(),");
     });
   });
 

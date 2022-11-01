@@ -11,7 +11,7 @@ extension FooMapperExtension on Foo {
             toFieldName: 'items',
             type: FooDto,
           ) ??
-          items.map((e) => e.toCustomObjectDto()),
+          items.map((e) => e.toCustomObjectDto()).toList(),
       customObject1: mapper.convert<CustomObjectDto>(
             toFieldName: 'customObject1',
             type: FooDto,
@@ -45,7 +45,7 @@ extension FooMapperExtension on Foo {
             toFieldName: 'items',
             type: FooEntity,
           ) ??
-          items.map((e) => e.toCustomObjectEntity()),
+          items.map((e) => e.toCustomObjectEntity()).toList(),
       customObject1: mapper.convert<CustomObjectEntity>(
             toFieldName: 'customObject1',
             type: FooEntity,
