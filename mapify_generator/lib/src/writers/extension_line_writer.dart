@@ -45,15 +45,19 @@ class ExtensionLineWriter {
     return buffer..write('!');
   }
 
-  StringBuffer addListTypeConverter(StringBuffer buffer) {
+  StringBuffer addMapTypeConverter(StringBuffer buffer) {
     return buffer..write('.map((e) => e.to${_genericTypeName}())');
+  }
+
+  StringBuffer addListTypeConverter(StringBuffer buffer) {
+    return buffer..write('.toList()');
   }
 
   StringBuffer writeMapListSubTypeAssignment(StringBuffer buffer) {
     addVariableAssignment(buffer);
-    if (_isNullable) {
-      addOptionalOperator(buffer);
-    }
+    if (_isNullable) addOptionalOperator(buffer);
+    addMapTypeConverter(buffer);
+    if (_isNullable) addOptionalOperator(buffer);
     addListTypeConverter(buffer);
 
     return buffer;

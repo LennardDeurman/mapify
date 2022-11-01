@@ -21,7 +21,7 @@ class MapifyGenerator extends GeneratorForAnnotation<GenerateMapping> {
     return ExtensionWriter(
       mapperClassName: mapperClassName,
       inputClassName: inputClassName,
-      inputTypeClassElement: element,
+      inputTypeClassElement: processor.inputTypeClassElement,
       outputTypeClassElements: processor.outputTypeClassElements,
     ).write();
   }
