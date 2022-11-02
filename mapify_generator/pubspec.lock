@@ -9,7 +9,7 @@ packages:
     source: hosted
     version: "47.0.0"
   analyzer:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: analyzer
       url: "https://pub.dartlang.org"
@@ -242,10 +242,10 @@ packages:
   mapify:
     dependency: "direct main"
     description:
-      path: "../mapify"
-      relative: true
-    source: path
-    version: "1.0.0"
+      name: mapify
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0"
   matcher:
     dependency: transitive
     description:

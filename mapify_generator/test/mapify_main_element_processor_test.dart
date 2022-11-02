@@ -1,6 +1,4 @@
-import 'package:mapify/mapify.dart';
 import 'package:mapify_generator/src/processors/processors.dart';
-import 'package:mapify_generator/src/extensions/extensions.dart';
 import 'package:test/test.dart';
 
 import 'utils/class_element_utils.dart';

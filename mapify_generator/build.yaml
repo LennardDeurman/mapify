@@ -6,7 +6,7 @@ targets:
 
 builders:
   property_product:
-    import: "package:mapify_generator/builder.dart"
+    import: "package:mapify_generator/mapify_generator.dart"
     builder_factories: [ "mapify" ]
     build_extensions: { ".dart": [ "g.part" ] }
     auto_apply: dependents

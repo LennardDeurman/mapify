@@ -1,9 +1,10 @@
 name: mapify
+homepage: https://github.com/LennardDeurman/mapify
 description: Package for converting objects to similar objects inline with clean architecture
-version: 1.0.0
+version: 0.1.0
 environment:
   sdk: ">=2.17.0 <3.0.0"
 
 dev_dependencies:
-  test: 1.3.4
   analysis_options: any
+  test: 1.3.4
