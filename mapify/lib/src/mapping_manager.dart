@@ -3,6 +3,7 @@ abstract class MappingManager<InputType> {
   /// The mapping manager takes the original object as input
   const MappingManager(this.input);
 
+  /// The input object
   final InputType input;
   
   /// When mapping the object the created extension will first invoke the
