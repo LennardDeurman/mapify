@@ -2,16 +2,6 @@ extension FooMapperExtension on Foo {
   FooDto toFooDto() {
     final mapper = FooMapper(this);
     return FooDto(
-      id: mapper.convert<String>(
-            toFieldName: 'id',
-            type: FooDto,
-          ) ??
-          id,
-      items: mapper.convert<List<CustomObjectDto>>(
-            toFieldName: 'items',
-            type: FooDto,
-          ) ??
-          items.map((e) => e.toCustomObjectDto()).toList(),
       customObject1: mapper.convert<CustomObjectDto>(
             toFieldName: 'customObject1',
             type: FooDto,
@@ -22,6 +12,16 @@ extension FooMapperExtension on Foo {
             type: FooDto,
           ) ??
           customObject2?.toCustomObjectDto(),
+      id: mapper.convert<String>(
+            toFieldName: 'id',
+            type: FooDto,
+          ) ??
+          id,
+      items: mapper.convert<List<CustomObjectDto>>(
+            toFieldName: 'items',
+            type: FooDto,
+          ) ??
+          items.map((e) => e.toCustomObjectDto()).toList(),
       unknown: mapper.convert<String>(
         toFieldName: 'unknown',
         type: FooDto,
@@ -36,16 +36,6 @@ extension FooMapperExtension on Foo {
   FooEntity toFooEntity() {
     final mapper = FooMapper(this);
     return FooEntity(
-      id: mapper.convert<String>(
-            toFieldName: 'id',
-            type: FooEntity,
-          ) ??
-          id,
-      items: mapper.convert<List<CustomObjectEntity>>(
-            toFieldName: 'items',
-            type: FooEntity,
-          ) ??
-          items.map((e) => e.toCustomObjectEntity()).toList(),
       customObject1: mapper.convert<CustomObjectEntity>(
             toFieldName: 'customObject1',
             type: FooEntity,
@@ -56,6 +46,16 @@ extension FooMapperExtension on Foo {
             type: FooEntity,
           ) ??
           customObject2?.toCustomObjectEntity(),
+      id: mapper.convert<String>(
+            toFieldName: 'id',
+            type: FooEntity,
+          ) ??
+          id,
+      items: mapper.convert<List<CustomObjectEntity>>(
+            toFieldName: 'items',
+            type: FooEntity,
+          ) ??
+          items.map((e) => e.toCustomObjectEntity()).toList(),
       unknown: mapper.convert<String>(
         toFieldName: 'unknown',
         type: FooEntity,
