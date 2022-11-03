@@ -5,6 +5,43 @@ import '../utils/resource_reader.dart';
 import '../utils/class_element_utils.dart';
 
 void main() {
+  test('Test getConstructorFields', () async {
+    final inputClassElement = await createClassElement(
+      clazz: '''
+      
+      class Foo {
+        final String id;
+        final List<CustomObject> items;
+        final CustomObject customObject1;
+        final CustomObject? customObject2;
+        
+        const Foo({ required this.id, required this.items, required this.customObject1, this.customObject2,})
+        
+        double get justASetter => 0.8;
+        
+        final String justAFinal = '';
+      }
+       
+      ''',
+      extra: 'class CustomObject {}',
+    );
+
+    final extensionWriter = ExtensionWriter(
+      mapperClassName: 'FooMapper',
+      inputClassName: 'Foo',
+      inputTypeClassElement: inputClassElement,
+      outputTypeClassElements: [],
+    );
+
+    final constructorFields = extensionWriter.getConstructorFields(inputClassElement);
+    expect(
+      constructorFields.map((e) => e.name).toSet(),
+      {
+        'id', 'items', 'customObject1', 'customObject2'
+      },
+    );
+  });
+
   test('Test extension writer output', () async {
     final inputClassElement = await createClassElement(
       clazz: '''
