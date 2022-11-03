@@ -21,6 +21,19 @@ class ExtensionWriter {
 
   final DartFormatter _dartFormatter = DartFormatter();
 
+  List<FieldElement> getConstructorFields(ClassElement classElement) {
+    final fields = <FieldElement>[];
+
+    final constructor = classElement.constructors.first;
+
+    constructor.parameters.forEach((parameterElement) {
+      final field = classElement.getField(parameterElement.name);
+      if (field != null) fields.add(field);
+    });
+
+    return fields;
+  }
+
   String write() {
     // start the extension
     final outputBuffer = StringBuffer();
@@ -28,7 +41,7 @@ class ExtensionWriter {
 
     for (final outputTypeClassElement in _outputTypeClassElements) {
       final outputClassName = outputTypeClassElement.displayName;
-      final fields = outputTypeClassElement.fields;
+      final fields = getConstructorFields(outputTypeClassElement);
 
       outputBuffer.write(
         ExtensionBlockWriter(
