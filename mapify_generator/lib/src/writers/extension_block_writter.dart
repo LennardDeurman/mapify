@@ -23,7 +23,8 @@ class ExtensionBlockWriter {
   final DartFormatter _dartFormatter = DartFormatter();
 
   StringBuffer addExtensionContentLines(StringBuffer buffer) {
-    for (final field in _fields) {
+    final fields = _fields..sort((a, b) => a.name.compareTo(b.name));
+    for (final field in fields) {
       final fieldConversionProcessor = FieldConversionProcessor.to(
         field,
         from: _inputTypeClassElement.getField(field.name),

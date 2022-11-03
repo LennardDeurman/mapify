@@ -42,6 +42,8 @@ void main() {
 
     final output = extensionBlockWriter.write();
 
+    print(output);
+
     expect(
       output,
       await readResource('expected_block_output.txt'),

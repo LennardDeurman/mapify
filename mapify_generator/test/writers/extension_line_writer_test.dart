@@ -98,7 +98,7 @@ void main() {
         strategy: FieldConversionStrategy.mapListSubType,
       );
 
-      expect(output, "customObjects: mapper.convert<List<CustomObject>>(toFieldName: 'customObjects', type: Foo,) ?? customObjects?.map((e) => e.toCustomObject())?.toList(),");
+      expect(output, "customObjects: mapper.convert<List<CustomObject>>(toFieldName: 'customObjects', type: Foo,) ?? customObjects?.map((e) => e.toCustomObject()).toList(),");
     });
   });
 

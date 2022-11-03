@@ -57,7 +57,6 @@ class ExtensionLineWriter {
     addVariableAssignment(buffer);
     if (_isNullable) addOptionalOperator(buffer);
     addMapTypeConverter(buffer);
-    if (_isNullable) addOptionalOperator(buffer);
     addListTypeConverter(buffer);
 
     return buffer;
