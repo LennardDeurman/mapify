@@ -2,9 +2,6 @@
 
 This library helps mapping similar objects to eachother. 
 
-While implementing clean architecture principles significantly improves code maintenability and readability 
-you might find yourself repeating class structures over several layers. 
-
 This library generates extensions based on the original input object to the desired output, and automatically resolves matching fields. 
 
 ### How to define? 
