@@ -1,3 +1,7 @@
+# 0.1.5
+
+* Updated analyzer 
+
 # 0.1.4
 
 * Remove incorrect optional ? in list map
