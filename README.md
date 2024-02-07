@@ -1,5 +1,7 @@
 # Mapify
 
+DISCONTINUED: Not actively working on this repository, as the package Mappr (https://github.com/netglade/auto_mappr) Fulfills the same needs.
+
 This library helps mapping similar objects to eachother. 
 
 This library generates extensions based on the original input object to the desired output, and automatically resolves matching fields. 
